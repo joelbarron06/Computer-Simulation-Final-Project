@@ -4,42 +4,42 @@
     [
 		{
 			"name": "sun",
-			"type": "star",
+			"body_type": "star",
 			"mass": 332946.0,
 			"orbital_radius": 0.0,
 			"color": "y"
 		},		
 		{
 			"name": "mercury",
-			"type": "planet",
+			"body_type": "planet",
 			"mass": 0.06,
 			"orbital_radius": 0.387,
 			"color": "gray"
 		},
 		{
 			"name": "venus",
-			"type": "planet",
+			"body_type": "planet",
 			"mass": 0.82,
 			"orbital_radius": 0.723,
 			"color": "orange"
 		},
 		{
 			"name": "earth",
-			"type": "planet",
+			"body_type": "planet",
 			"mass": 1.0,
 			"orbital_radius": 1.0,
 			"color": "b"
 		},
 		{
 			"name": "mars",
-			"type": "planet",
+			"body_type": "planet",
 			"mass": 0.11,
 			"orbital_radius": 1.524,
 			"color": "r"
 		},
 		{
 			"name": "jupiter",
-			"type": "planet",
+			"body_type": "planet",
 			"mass": 318,
 			"orbital_radius": 5.2,
 			"color": "silver"
