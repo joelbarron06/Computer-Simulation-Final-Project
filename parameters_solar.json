@@ -1,55 +1,46 @@
 {
+	
     "bodies":
     [
-		{"star":
-			{
-				"name": "sun",
-				"mass": 332946.0,
-				"orbital_radius": 0.0,
-				"color": "y"
-			}
+		{
+			"name": "sun",
+			"type": "star",
+			"mass": 332946.0,
+			"orbital_radius": 0.0,
+			"color": "y"
+		}
+		
+		
+		{
+			"name": "mercury",
+			"mass": 0.06,
+			"orbital_radius": 0.387,
+			"color": "gray"
 		},
-		{"planets":
-		[
-			{
-				"name": "mercury",
-				"mass": 0.06,
-				"orbital_radius": 0.387,
-				"color": "gray"
-			},
-			{
-				"name": "venus",
-				"mass": 0.82,
-				"orbital_radius": 0.723,
-				"color": "orange"
-			},
-			{
-				"name": "earth",
-				"mass": 1.0,
-				"orbital_radius": 1.0,
-				"color": "b"
-			},
-			{
-				"name": "mars",
-				"mass": 0.11,
-				"orbital_radius": 1.524,
-				"color": "r"
-			},
-			{
-				"name": "jupiter",
-				"mass": 318,
-				"orbital_radius": 5.2,
-				"color": "silver"
-			}
-		]
+		{
+			"name": "venus",
+			"mass": 0.82,
+			"orbital_radius": 0.723,
+			"color": "orange"
 		},
-		{"other":
-			{
-				"name": "satellite",
-				"mass": 0.0001,
-				"orbital_radius": 2.8,
-				"color": "black"
-			}
+		{
+			"name": "earth",
+			"mass": 1.0,
+			"orbital_radius": 1.0,
+			"color": "b"
+		},
+		{
+			"name": "mars",
+			"mass": 0.11,
+			"orbital_radius": 1.524,
+			"color": "r"
+		},
+		{
+			"name": "jupiter",
+			"mass": 318,
+			"orbital_radius": 5.2,
+			"color": "silver"
 		}
 	]
+
 }
