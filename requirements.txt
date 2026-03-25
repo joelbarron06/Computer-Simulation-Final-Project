@@ -1,0 +1,5 @@
+matplotlib
+numpy
+os
+json
+csv
