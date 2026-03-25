@@ -384,6 +384,8 @@ class SolarSystem:
             Figure of animation.
         ax : matplotlib.axes
             Axes of animation.
+        anim : matplotlib.animation.FuncAnimation
+            Animation object.
 
         """
         fig, ax = plt.subplots(figsize=(10, 10))
@@ -431,7 +433,7 @@ class SolarSystem:
         
         plt.tight_layout()
         
-        return fig, ax
+        return fig, ax, self.anim
     
     def animate_step(self, i):
         """
