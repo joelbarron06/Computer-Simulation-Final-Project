@@ -1,6 +1,6 @@
 {
-	"timestep": 0.001, 
-	"simulation_period": 15,
+	"timestep": 0.01, 
+	"simulation_period": 50,
     "bodies":
     [
 		{

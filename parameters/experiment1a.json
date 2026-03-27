@@ -1,6 +1,6 @@
 {
-	"timestep": 0.001, 
-	"simulation_period": 3,
+	"timestep": 0.1, 
+	"simulation_period": 50,
     "bodies":
     [
 		{
@@ -13,15 +13,15 @@
 		{
 			"name": "Mercury",
 			"body_type": "planet",
-			"mass": 0.06,
-			"orbital_radius": 0.387,
+			"mass": 0.05527,
+			"orbital_radius": 0.39,
 			"color": "gray"
 		},
 		{
 			"name": "Venus",
 			"body_type": "planet",
-			"mass": 0.82,
-			"orbital_radius": 0.723,
+			"mass": 0.8150,
+			"orbital_radius": 0.72,
 			"color": "orange"
 		},
 		{
@@ -34,14 +34,14 @@
 		{
 			"name": "Mars",
 			"body_type": "planet",
-			"mass": 0.11,
-			"orbital_radius": 1.524,
+			"mass": 0.1074,
+			"orbital_radius": 1.52,
 			"color": "r"
 		},
 		{
 			"name": "Jupiter",
 			"body_type": "planet",
-			"mass": 318,
+			"mass": 317.8,
 			"orbital_radius": 5.2,
 			"color": "brown"
 		}
