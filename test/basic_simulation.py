@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 def main():
     """
-    Runs simulation and animation using paraeterms of basic configuration
+    Runs simulation and animation using parameters of basic configuration
     """
     system = SolarSystem()
     
