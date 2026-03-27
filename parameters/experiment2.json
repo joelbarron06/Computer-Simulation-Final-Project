@@ -1,0 +1,50 @@
+{
+	"timestep": 0.01, 
+	"simulation_period": 200,
+    "bodies":
+    [
+		{
+			"name": "Sun",
+			"body_type": "star",
+			"mass": 332946.0,
+			"orbital_radius": 0.0,
+			"color": "y"
+		},		
+		{
+			"name": "Mercury",
+			"body_type": "planet",
+			"mass": 0.05527,
+			"orbital_radius": 0.39,
+			"color": "gray"
+		},
+		{
+			"name": "Venus",
+			"body_type": "planet",
+			"mass": 0.8150,
+			"orbital_radius": 0.72,
+			"color": "orange"
+		},
+		{
+			"name": "Earth",
+			"body_type": "planet",
+			"mass": 1.0,
+			"orbital_radius": 1.0,
+			"color": "b"
+		},
+		{
+			"name": "Mars",
+			"body_type": "planet",
+			"mass": 0.1074,
+			"orbital_radius": 1.52,
+			"color": "r"
+		},
+		{
+			"name": "Jupiter",
+			"body_type": "planet",
+			"mass": 317.8,
+			"orbital_radius": 5.2,
+			"color": "brown"
+		}
+	]
+
+}
