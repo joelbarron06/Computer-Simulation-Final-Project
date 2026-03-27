@@ -152,7 +152,7 @@ class SolarSystem:
             return body[0]
     
     
-    def run_simulation(self, print_periods=True, write_energy=True, energy_file_name='energy'): 
+    def run_simulation(self, print_periods=True, write_energy=True, energy_file_name='energy', energy_interval=30): 
         """
         Run full simulation of system.
         Update vectors at each timestep for whole time period.
@@ -167,6 +167,8 @@ class SolarSystem:
             Switch for writing system energy to file periodically. The default is True.
         energy_file_name : str, optional
             Name for .csv file of system energy. The default is 'energy'.
+        energy_interval : int, optional
+            How often (iterations) energy is written to file. The default is 30.
 
         Returns
         -------
@@ -213,7 +215,7 @@ class SolarSystem:
                     body.last_crossing_time = t_now
                
             if write_energy:
-                if i % 30 == 0: # every 30 iterations
+                if i % energy_interval == 0: # defined period
                     t_now = i * self.timestep
                     energy = self.calculate_total_system_energy()
                     # reopen file to append
