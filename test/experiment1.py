@@ -8,6 +8,9 @@ sys.path.insert(0, ROOT)
 from src.system import SolarSystem
 
 def orbtial_periods(dt):
+        """
+        Print simulated orbital periods for specified dt outside of parameters
+        """
         system = SolarSystem()
 
         file_name = f"experiment1.json"
