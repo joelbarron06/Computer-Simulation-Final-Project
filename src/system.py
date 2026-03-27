@@ -71,7 +71,7 @@ class SolarSystem:
             raise ValueError("Simulation period must be a positive real number.")
         
         # set iterations in accordance to period and timestep 
-        self.num_iterations = round(period / timestep)
+        self.period = period
         
         # check exactly one star in bodies of file
         file_stars = list(filter(lambda body: body["body_type"] == "star", parameters_solar["bodies"]))
@@ -173,6 +173,8 @@ class SolarSystem:
         None.
 
         """
+        # calculate number of iterations
+        self.num_iterations = round(self.period / self.timestep)
         
         # initialise acceleration for simulations
         for body in self.bodies:
@@ -224,7 +226,7 @@ class SolarSystem:
                 if body.name == star.name: # skip star as star should be held constant
                     continue
                 # print mean of body's orbital period
-                print(f"Orbital period of {body.name}: {np.mean(body.orbital_periods):.4f}")
+                print(f"Orbital period of {body.name}: {np.mean(body.orbital_periods)}")
     
     def update_vectors(self):
         """
@@ -661,6 +663,9 @@ class SolarSystemSatelliteGrid(SolarSystem):
         None.
 
         """
+        # calculate number of iterations
+        self.num_iterations = round(self.period / self.timestep)
+
         # initialise acceleration for simulations
         for body in self.bodies:
             a = self.calculate_acceleration(body.name)
