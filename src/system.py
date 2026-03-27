@@ -29,15 +29,15 @@ class SolarSystem:
         
         self.bodies = []
  
-    def read_parameters(self, file_name):
+    def read_parameters(self, file_path):
         """
-        Reads parameters from json file in parameters directory.
+        Reads parameters from json file.
         Unpacks and adds bodies present to instance.
 
         Parameters
         ----------
-        file_name : str
-            Name of parameters file.
+        file_path : str
+            Path to parameters file.
 
         Raises
         ------
@@ -48,11 +48,7 @@ class SolarSystem:
         -------
         None.
 
-        """
-        
-        # file path to file in parameters directory
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../parameters', file_name)
-        
+        """        
         with open(file_path) as f:
             parameters_solar = json.load(f)
         
