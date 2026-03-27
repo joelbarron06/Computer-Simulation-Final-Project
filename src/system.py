@@ -193,6 +193,9 @@ class SolarSystem:
             with open(os.path.join(BASE_DIR, "data", f"{energy_file_name}.csv"), 'w', newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow(['time', 'energy']) # header
+                # write initial energy
+                energy = self.calculate_total_system_energy()
+                writer.writerow([0.0, energy])
         
         # run simulation for number iterations
         for i in range(self.num_iterations):
@@ -215,7 +218,7 @@ class SolarSystem:
                     body.last_crossing_time = t_now
                
             if write_energy:
-                if i % energy_interval == 0: # defined period
+                if i % energy_interval == 0 and i !=0: # defined period and skip first iteration
                     t_now = i * self.timestep
                     energy = self.calculate_total_system_energy()
                     # reopen file to append
