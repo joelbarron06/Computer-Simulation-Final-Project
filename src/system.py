@@ -533,9 +533,9 @@ class SolarSystemSatelliteGrid(SolarSystem):
 
         Parameters
         ----------
-        vx_range : tuple of (float, float, float)
+        vx_range : tuple of (float, float, int)
             Elements are (minimum x speed (AU/yr), maximum x speed (AU/yr), number of points).
-        vy_range : tuple of (float, float, float)
+        vy_range : tuple of (float, float, int)
             Elements are (minimum y speed (AU/yr), maximum y speed (AU/yr), number of points)
         initial_separation : float, optional
             How far off earth on positive x-axis that paths begin in AU. The default is 0.001.
