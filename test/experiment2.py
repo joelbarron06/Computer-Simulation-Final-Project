@@ -18,7 +18,7 @@ def simulate_data():
     INTERVAL = 20 # with dt=0.01 gives 5 readings per year
 
     # path to parameters
-    file_name = f"experiment2.json"
+    file_name = "experiment2.json"
     file_path = os.path.join(ROOT, 'parameters', file_name)
 
     # beeman integration
