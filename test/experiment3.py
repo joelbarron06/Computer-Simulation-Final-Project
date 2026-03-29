@@ -22,7 +22,7 @@ def best_satellites(system):
     print(f"We have {len(v_within)} satellites that get within 1e6 km of Mars (within 2 years):")
     for v in v_within:
         dist_mars, time_mars, _, _ = system.stats_from_velocity(v[0], v[1])
-        print(f"v={v} gets within {dist_mars*1.496e8:.2f} km of Mars after {time_mars:.4f} years")
+        print(f"v={v} gets within {dist_mars} AU of Mars after {time_mars:.4f} years")
 
     return v_within
 
@@ -41,7 +41,7 @@ def gets_close():
     system1.add_satellite_grid(vx_range, vy_range)
     system1.run_simulation()
 
-    heatmap(system1)
+    #heatmap(system1)
     v_within = best_satellites(system1)
 
     return v_within
@@ -63,7 +63,7 @@ def return_to_earth(v_within):
     print("and these satellites closest return to earth (within 10 years) are:")
     for v in v_within:
         _, _, dist_earth, time_earth = system2.stats_from_velocity(v[0], v[1])
-        print(f"v={v} gets back to within {dist_earth*1.496e8:.2f} km of Earth after {time_earth:.4f} years")
+        print(f"v={v} gets back to within {dist_earth} AU of Earth after {time_earth:.4f} years")
 
 
 def main():
