@@ -571,11 +571,14 @@ class SolarSystemSatelliteGrid(SolarSystem):
         self.sat_previous_accelerations = a.copy()  # previous
 
         
-        # track only min distance and time it takes
+        # track min distance and time it takes
         self.sat_min_distance_mars = np.full(N, np.inf)
         self.sat_min_distance_earth = np.full(N, np.inf)
-        self.sat_min_time_mars = np.zeros(N)
-        self.sat_min_time_earth = np.zeros(N)
+        self.sat_min_time_mars = np.full(N, np.inf)
+        self.sat_min_time_earth = np.full(N, np.inf)
+
+        # tracking if paassed within a tolerance of mars
+        self.sat_passed_mars = np.full(N, False)
         
     def calculate_acceleration_grid(self):
         """
@@ -622,7 +625,7 @@ class SolarSystemSatelliteGrid(SolarSystem):
         self.sat_previous_accelerations = self.sat_accelerations
         self.sat_accelerations = a_new
     
-    def update_min_distance_to(self, target_name, step_index):
+    def update_min_distance_to(self, target_name, step_index, tol=None):
         """
         Update the minimum distance to target if closer than previous closest distance.
 
@@ -632,6 +635,8 @@ class SolarSystemSatelliteGrid(SolarSystem):
             Unique name identifier of target body.
         step_index : int
             Current step of iteration.
+        tol : float, optional
+            Tolerance for considering a satellite to have passed the target. The default is None.
 
         Returns
         -------
@@ -648,17 +653,23 @@ class SolarSystemSatelliteGrid(SolarSystem):
             closer = distances < self.sat_min_distance_mars # mask for closer position
             self.sat_min_distance_mars = np.where(closer, distances, self.sat_min_distance_mars) 
             self.sat_min_time_mars = np.where(closer, step_index * self.timestep, self.sat_min_time_mars)
+            self.sat_passed_mars = self.sat_passed_mars | (distances < tol) # OR to flip to True is within tol
             
         if target_name == "Earth":
             # vectorised updates of cloesrr to target and minimum time
-            condition = (distances < self.sat_min_distance_earth) & (step_index*self.timestep > self.sat_min_time_mars) # mask for closer position
+            condition = (distances < self.sat_min_distance_earth) & self.sat_passed_mars # mask for closer position
             self.sat_min_distance_earth = np.where(condition, distances, self.sat_min_distance_earth) 
             self.sat_min_time_earth = np.where(condition, step_index * self.timestep, self.sat_min_time_earth)
     
-    def run_simulation(self):
+    def run_simulation(self, tol=0.006):
         """
         Overwrites parent method to include updating satellites.
         Removes writing energy and updating orbital periods.
+
+        Parameters
+        ----------
+        tol : float, optional
+            Value minimum distance must be within in AU to be considered to have passed Mars. The default is 0.006.
 
         Returns
         -------
@@ -679,8 +690,8 @@ class SolarSystemSatelliteGrid(SolarSystem):
             self.update_vectors()
             # update all satellites in one pass
             self.update_step_satellites()
-            self.update_min_distance_to("Mars", i)
-            self.update_min_distance_to("Earth", i)
+            self.update_min_distance_to("Mars", i+1, tol) # time after update
+            self.update_min_distance_to("Earth", i+1)
     
     def closest_approach_mars_conditions(self):
         """
