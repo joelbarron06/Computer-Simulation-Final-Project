@@ -28,6 +28,8 @@ class SolarSystem:
         """
         
         self.bodies = []
+        # custom graviatational constant by unit conversion
+        self.G = (4 * np.pi**2) / (332946.0 + 1)
  
     def read_parameters(self, file_path):
         """
@@ -80,8 +82,6 @@ class SolarSystem:
         
         # store mass to initalise velocity
         star_mass = file_stars[0]["mass"]
-        # custom graviatational constant by unit conversion
-        self.G = (4 * np.pi**2) / (332946.0 + 1)
         
         # add bodies in file into system
         for file_body in parameters_solar["bodies"]:
