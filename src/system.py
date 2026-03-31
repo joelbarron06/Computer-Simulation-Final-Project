@@ -411,7 +411,7 @@ class SolarSystem:
         for body in self.bodies:
             # normalise mass on log scale to get relative patch sizes
             norm = (np.log(body.mass) - np.log(masses.min())) / (np.log(masses.max()) - np.log(masses.min()))
-            patch_radius = max_r * 0.5 * (0.005 + norm * 0.025)
+            patch_radius = max_r * (0.005 + norm * 0.025)
             # initial patch position
             x0 = body.position_history[0, 0] - star_positions[0, 0]
             y0 = body.position_history[0, 1] - star_positions[0, 1]
