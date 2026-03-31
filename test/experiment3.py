@@ -12,7 +12,7 @@ def heatmap(system):
 
     # plot heatmap of approaches
     fig, ax = system.plot_heatmap()
-    ax.set_title("Intial Velocites' Closeness to Mars")
+    ax.set_title("Initial Velocites' Closeness to Mars")
     plt.savefig(os.path.join(ROOT, 'figures', 'experiment3_heatmap.png'))
     plt.close()
 
@@ -41,7 +41,7 @@ def gets_close():
     system1.add_satellite_grid(vx_range, vy_range)
     system1.run_simulation()
 
-    #heatmap(system1)
+    heatmap(system1)
     v_within = best_satellites(system1)
 
     return v_within
