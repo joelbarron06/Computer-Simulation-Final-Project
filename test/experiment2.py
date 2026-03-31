@@ -122,7 +122,7 @@ def stats_for_discussion(data):
     """
     df = data.iloc[5:]
 
-    with open(os.path.join(ROOT, "data", "e3_statistics.csv"), "w", newline='') as f:
+    with open(os.path.join(ROOT, "data", "e2_statistics.csv"), "w", newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['algorithm', 'mean', 'std', 'range', 'slope', 'monotone increasing']) # header
 
