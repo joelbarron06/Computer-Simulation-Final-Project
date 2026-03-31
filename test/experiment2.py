@@ -71,17 +71,17 @@ def rolling_mean_plot(data):
 
     ax[0].plot(plot_data["Beeman"], label='System Energy')
     ax[0].plot(plot_data["Beeman"].rolling(window=50).mean(), 'r-', alpha=0.6, label='10yr Rolling Mean')
-    ax[0].set(title='Beeman', xlabel='time (yr)', ylabel='Energy')
+    ax[0].set(title='Beeman', xlabel='Time (yr)', ylabel=r'Energy ($M_\oplus AU^2 yr^{-2}$)')
     ax[0].legend()
 
     ax[1].plot(plot_data["Euler-Cromer"], label='System Energy')
     ax[1].plot(plot_data["Euler-Cromer"].rolling(window=50).mean(), 'r-', alpha=0.6, label='10yr Rolling Mean')
-    ax[1].set(title='Euler-Cromer', xlabel='time (yr)', ylabel='Energy')
+    ax[1].set(title='Euler-Cromer', xlabel='Time (yr)', ylabel=r'Energy ($M_\oplus AU^2 yr^{-2}$)')
     ax[1].legend()
 
     ax[2].plot(plot_data["Direct Euler"], label='System Energy')
     ax[2].plot(plot_data["Direct Euler"].rolling(window=50).mean(), 'r-', alpha=0.6, label='10yr Rolling Mean')
-    ax[2].set(title='Direct Euler', xlabel='time (yr)', ylabel='Energy')
+    ax[2].set(title='Direct Euler', xlabel='Time (yr)', ylabel=r'Energy ($M_\oplus AU^2 yr^{-2}$)')
     ax[2].legend()
 
     plt.tight_layout()
@@ -109,7 +109,7 @@ def normalised_plot(data):
 
     ax[1].plot(plot_data['Beeman Norm'], label='Beeman', alpha=0.6)
     ax[1].plot(plot_data['Euler-Cromer Norm'], label='Euler-Cromer', alpha=0.6)
-    ax[1].set(xlabel='time (yr)', ylabel='Normalised Energy')
+    ax[1].set(xlabel='Time (yr)', ylabel='Normalised Energy')
     ax[1].legend()
 
     plt.tight_layout()
