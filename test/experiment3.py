@@ -1,6 +1,5 @@
 import os
 import sys
-import numpy as np
 import matplotlib.pyplot as plt
 
 # import modules from root
@@ -9,7 +8,9 @@ sys.path.insert(0, ROOT)
 from src.system import SolarSystemSatelliteGrid
 
 def heatmap(system):
-
+    """
+    Plot heatmap using built-in method with custom title
+    """
     # plot heatmap of approaches
     fig, ax = system.plot_heatmap()
     ax.set_title("Initial Velocites' Closeness to Mars")
@@ -17,7 +18,9 @@ def heatmap(system):
     plt.close()
 
 def best_satellites(system):
-
+    """
+    Find satellites that get within 1e6 km of Mars and print their stats
+    """
     v_within = system.close_to_mars_satellites()
     print(f"We have {len(v_within)} satellites that get within 1e6 km of Mars (within 2 years):")
     for v in v_within:
@@ -28,6 +31,9 @@ def best_satellites(system):
 
 
 def gets_close():
+    """
+    Simukate approaches to Mars; plot heatmap and print stats of close satellites
+    """
     # path to parameters
     file_name = "experiment3a.json"
     file_path = os.path.join(ROOT, 'parameters', file_name)
@@ -47,6 +53,9 @@ def gets_close():
     return v_within
 
 def return_to_earth(v_within):
+    """
+    Simulate to show return to Earth (longer period) of satellites that get close to Mars; print stats of closest return
+    """
     # path to parameters
     file_name = "experiment3b.json"
     file_path = os.path.join(ROOT, 'parameters', file_name)
